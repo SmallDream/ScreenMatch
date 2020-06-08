@@ -49,7 +49,8 @@ public class XmlIO {
      * @param multiple    对应新文件需要乘以的系数
      * @param outPutFile  目标文件输出目录
      */
-    public static void createDestinationDimens(boolean isFontMatch, ArrayList<DimenItem> list, double multiple, String outPutFile) {
+    public static String createDestinationDimens(boolean isFontMatch, ArrayList<DimenItem> list, double multiple, String outPutFile) {
+        StringBuilder stringBuilder = new StringBuilder();
         try {
             File targetFile = new File(outPutFile);
             if (targetFile.exists()) {
@@ -59,6 +60,7 @@ public class XmlIO {
                     e.printStackTrace();
                 }
             }
+
             //创建SAXTransformerFactory实例
             SAXTransformerFactory saxTransformerFactory = (SAXTransformerFactory) SAXTransformerFactory.newInstance();
             //创建TransformerHandler实例
@@ -82,7 +84,7 @@ public class XmlIO {
             //换行
             handler.characters("\n".toCharArray(), 0, "\n".length());
             //写入根节点resources
-            handler.startElement("", "", SAXReadHandler.ELEMENT_RESOURCE, attributes);
+            handler.startElement("", SAXReadHandler.ELEMENT_RESOURCE, SAXReadHandler.ELEMENT_RESOURCE, attributes);
             //集合大小
             int size = list.size();
             for (int i = 0; i < size; i++) {
@@ -90,23 +92,27 @@ public class XmlIO {
                 //乘以系数，加上后缀
                 String targetValue = Tools.countValue(isFontMatch, dimenBean.value, multiple);
                 attributes.clear();
-                attributes.addAttribute("", "", SAXReadHandler.PROPERTY_NAME, "", dimenBean.name);
+                attributes.addAttribute("", SAXReadHandler.PROPERTY_NAME, SAXReadHandler.PROPERTY_NAME, "", dimenBean.name);
 
                 //新dimen之前，换行、缩进
                 handler.characters("\n".toCharArray(), 0, "\n".length());
                 handler.characters("\t".toCharArray(), 0, "\t".length());
 
                 //开始标签对输出
-                handler.startElement("", "", SAXReadHandler.ELEMENT_DIMEN, attributes);
+                handler.startElement("", SAXReadHandler.ELEMENT_DIMEN, SAXReadHandler.ELEMENT_DIMEN, attributes);
                 handler.characters(targetValue.toCharArray(), 0, targetValue.length());
-                handler.endElement("", "", SAXReadHandler.ELEMENT_DIMEN);
+                handler.endElement("", SAXReadHandler.ELEMENT_DIMEN, SAXReadHandler.ELEMENT_DIMEN);
             }
-            handler.endElement("", "", SAXReadHandler.ELEMENT_RESOURCE);
+            handler.endElement("", SAXReadHandler.ELEMENT_RESOURCE, SAXReadHandler.ELEMENT_RESOURCE);
             handler.endDocument();
             System.out.println(">>>>> " + outPutFile + " 文件生成完成!");
         } catch (Exception e) {
             System.out.println("DK WARNING: " + outPutFile + " 文件生成失败!");
             e.printStackTrace();
+            stringBuilder.append("\nDK WARNING: " + outPutFile + " 文件生成失败!");
+            stringBuilder.append("\nERROR:" + e.getMessage());
         }
+
+        return stringBuilder.toString();
     }
 }

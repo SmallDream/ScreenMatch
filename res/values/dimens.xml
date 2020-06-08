@@ -1,0 +1,230 @@
+<resources>
+
+
+    <!-- txt size 比例：0.48-->
+    <dimen name="txt_s1">9dp</dimen>
+    <dimen name="txt_s2">10dp</dimen>
+    <dimen name="txt_s3">11dp</dimen>
+    <dimen name="txt_s4">12dp</dimen>
+    <dimen name="txt_s5">13dp</dimen>
+    <dimen name="txt_s6">14dp</dimen>
+    <dimen name="txt_s7">15dp</dimen>
+    <dimen name="txt_s8">16dp</dimen>
+    <dimen name="txt_s9">17dp</dimen>
+    <dimen name="txt_s10">18dp</dimen>
+    <dimen name="txt_s11">20dp</dimen>
+    <dimen name="txt_s12">22dp</dimen>
+    <dimen name="txt_s13">30dp</dimen>
+    <dimen name="txt_s14">35dp</dimen>
+    <dimen name="txt_s15">41dp</dimen>
+
+    <!-- shape -->
+    <!-- segment中使用 -->
+    <dimen name="radio_button_conner_radius">5dp</dimen>
+    <dimen name="radio_button_stroke_border">1dp</dimen>
+
+    <!-- dim -->
+    <dimen name="len_M_horizontal">21dp</dimen>
+    <dimen name="len_M_vertical">21dp</dimen>
+    <dimen name="len_M_vertical_half">8dp</dimen>
+    <dimen name="len_H_line_1_half">13dp</dimen>
+    <dimen name="len_M_horizontal_max_huge">35dp</dimen>
+    <dimen name="len_M_vertical_max_plus">50dp</dimen>
+    <dimen name="len_M_vertical_plus">26dp</dimen>
+    <dimen name="len_M_horizontal_max_plus">22dp</dimen>
+    <dimen name="len_M_vertical_max">40dp</dimen>
+    <dimen name="len_H_input">45dp</dimen>
+    <dimen name="len_H_settingitem">60dp</dimen>
+    <dimen name="txt_s_notice">15dp</dimen>
+    <dimen name="zero">0dp</dimen>
+
+    <!-- bar -->
+    <dimen name="len_H_titlebar">46dp</dimen>
+    <dimen name="len_H_Key">48dip</dimen>
+    <dimen name="len_H_bottom_bar">42dp</dimen>
+
+    <!-- 涨跌幅红绿色背景宽高 -->
+    <dimen name="zdf_bg_width">72dp</dimen>
+    <dimen name="zdf_bg_height">32dp</dimen>
+
+    <!-- IOS7 Dialog -->
+    <!-- 选项菜单的高度 -->
+    <dimen name="actionsheet_height">48dip</dimen>
+    <!-- 选项菜单里取消按钮和上方菜单的间距的高度 -->
+    <dimen name="actionsheet_cancel_sp_height">13dip</dimen>
+    <!-- item里图片和内容的间隔 -->
+    <dimen name="actionsheet_icon_text_sp">12dip</dimen>
+    <dimen name="custom_dialog_btn_heigt">44dip</dimen>
+    <dimen name="custom_dialog_bg_radius">7dp</dimen>
+
+    <!-- loading -->
+    <dimen name="loading_w">37dp</dimen>
+    <dimen name="loading_h">20dp</dimen>
+    <dimen name="corners_degree">14dp</dimen>
+    <dimen name="len_H_btnbar">55dp</dimen>
+    <dimen name="len_H_line_2_half">15dip</dimen>
+
+    <!-- 加载更多 -->
+    <dimen name="footer_view_load_more">50dp</dimen>
+    <dimen name="user_title_v_left_margin">2dp</dimen>
+    <!--线的高度-->
+    <dimen name="line_height">1px</dimen>
+    <!--Indicator指示线的高度-->
+    <dimen name="indicator_height">2dp</dimen>
+
+    <!--底部导航bar-->
+    <dimen name="navigation_bar_h">48dp</dimen>
+    <!--行情-->
+    <!--自选、市场、理财segment高度-->
+    <dimen name="market_segment_h">30dp</dimen>
+    <!--市场indicator高度-->
+    <dimen name="market_indicator_h">33.5dp</dimen>
+    <!--分组条的高度-->
+    <dimen name="section_height">29dp</dimen>
+    <dimen name="market_index_item_h">86.5dp</dimen>
+    <dimen name="hk_index_item_h">67dp</dimen>
+    <dimen name="sector_hot_item_h">63dp</dimen>
+    <!--股票列表item的高度-->
+    <dimen name="market_stock_recyclerview_item_h">48dp</dimen>
+    <!--更多cell的最小宽高-->
+    <dimen name="market_ashare_more_min_w">31dp</dimen>
+    <dimen name="market_ashare_more_min_h">73dp</dimen>
+    <dimen name="market_ashare_more_margin">14dp</dimen>
+
+    <!-- keyboard -->
+    <dimen name="key_item_h">52dp</dimen>
+    <dimen name="key_voice_h">43dp</dimen>
+    <dimen name="key_layout_margin">2dp</dimen>
+    <dimen name="search_left_margin">12dp</dimen>
+
+    <dimen name="boot_logo_magrin_bottom">5dp</dimen>
+    <dimen name="boot_logo_magrin_top">38dp</dimen>
+
+    <!--  资讯 -->
+    <dimen name="info_news_banner_height">124.8dp</dimen>
+
+    <!-- 网页aty -->
+    <dimen name="browser_font_size_pop_width">230dp</dimen>
+    <dimen name="browser_font_size_pop_height">85dp</dimen>
+
+    <!--个股-->
+    <dimen name="quote_title_goodsname_w">125dp</dimen>
+    <dimen name="quote_header_info_tv_h">17.5dp</dimen>
+    <dimen name="quote_header_info_zxj_tv_h">35.5dp</dimen>
+    <dimen name="quote_header_info_zdf_tv_h">18dp</dimen>
+    <dimen name="quote_header_info_h">65.8dp</dimen>
+    <dimen name="quote_header_info_h_landscape">65.8dp</dimen>
+    <dimen name="quote_header_margin_top">8dp</dimen>
+    <dimen name="quote_header_padding_left">3dp</dimen>
+    <dimen name="quote_header_padding_right">1dp</dimen>
+    <dimen name="quote_header_padding_left_right_landscape">3dp</dimen>
+    <dimen name="quote_header_margin_top_landscape">7dp</dimen>
+    <dimen name="quote_header_margin_bottom_landscape">4dp</dimen>
+    <dimen name="quote_header_txt_margin">3dp</dimen>
+    <dimen name="quote_header_pankou_btn_padding">15dp</dimen>
+    <dimen name="quote_header_tip_width">26dp</dimen>
+    <dimen name="quote_bottom_toolbar_height">49dp</dimen>
+    <dimen name="quote_traddetail_width">110dp</dimen>
+    <dimen name="quote_traddetail_btn_h">22dp</dimen>
+    <dimen name="quote_minute_padding">4dp</dimen>
+
+    <!--分时、K线图表的高度-->
+    <dimen name="quote_char_h">312.5dp</dimen>
+    <!--MA相关-->
+    <dimen name="quote_kline_tip_h">15dp</dimen>
+    <!--指标设置区域的高度-->
+    <dimen name="quote_indicator_set_h">30dp</dimen>
+    <dimen name="quote_opreate_btns_padding">8dp</dimen>
+    <dimen name="quote_landscape_header_h">38.4dp</dimen>
+    <dimen name="quote_landscape_footer_h">35dp</dimen>
+    <dimen name="quote_xaxislayer_h">15.4dp</dimen>
+    <dimen name="quote_operate_h">38.5dp</dimen>
+    <dimen name="quote_buy_sell_10_btn_padding">10dp</dimen>
+    <dimen name="quote_matrix_padding">18dp</dimen>
+    <dimen name="quote_tick_detail_btn">16dp</dimen>
+    <dimen name="quote_detail_padding">2dp</dimen>
+
+    <!--指标设置详情页-->
+    <dimen name="ind_descrition_margin_v">20dp</dimen>
+    <dimen name="ind_detail_margin_h">14.4dp</dimen>
+
+    <!--列表涨跌幅背景框-->
+    <dimen name="list_zdf_bg_h">30.5dp</dimen>
+    <dimen name="list_zdf_bg_w">78.5dp</dimen>
+
+    <!--我的-->
+    <dimen name="my_list_item_h">48dp</dimen>
+    <dimen name="my_list_item_right_sp">15dp</dimen>
+    <dimen name="my_list_item_left_sp">15dp</dimen>
+    <dimen name="login_left_right_sp">24dp</dimen>
+    <dimen name="user_icon_size">51.8dp</dimen>
+    <dimen name="user_info_cell_h">96dp</dimen>
+    <dimen name="user_info_cell_padding">22dp</dimen>
+    <dimen name="user_info_cell_name_pading_l">14dp</dimen>
+    <dimen name="user_info_cell_name_pading_r">2dp</dimen>
+    <dimen name="phone_num_check_item_h">48dp</dimen>
+    <dimen name="phone_num_check_item_padding">16dp</dimen>
+    <dimen name="my_bottom_ad_h">138dp</dimen>
+
+
+    <!--刷新头-->
+    <dimen name="refresh_view_h">48dp</dimen>
+    <dimen name="refresh_view_logo_size">24dp</dimen>
+    <dimen name="refresh_ring_width">1dp</dimen>
+    <dimen name="refresh_margin">10dp</dimen>
+
+    <!--模拟交易-->
+    <dimen name="simulate_trade_padding">10dp</dimen>
+    <dimen name="simulate_trade_input_h">42.2dp</dimen>
+    <dimen name="simulate_trade_input_radius">3dp</dimen>
+    <dimen name="simulate_trade_input_width">3px</dimen>
+    <dimen name="simulate_trade_input_line_w">2px</dimen>
+    <dimen name="simulate_trade_keyboard_padding">3dp</dimen>
+    <dimen name="simulate_trade_keyboard_h">50dp</dimen>
+    <dimen name="simulate_trade_keyboard_sell_buy_h">106dp</dimen>
+    <dimen name="simulate_trade_dialog_top_bottom">19dp</dimen>
+    <dimen name="simulate_trade_dialog_left_right">22dp</dimen>
+    <dimen name="simulate_trade_dialog_item_top">12dp</dimen>
+    <dimen name="simulate_trade_qrylist_item_h">50dp</dimen>
+    <dimen name="simulate_transactions_frame_top">9.6dp</dimen>
+    <dimen name="simulate_transactions_timeline_margin">20dp</dimen>
+
+    <!-- 用户反馈 -->
+    <dimen name="chat_head_icon_size">42.2dp</dimen>
+    <dimen name="chat_audio_content_start_width">70dp</dimen>
+
+    <!--益盟股票100讲-->
+    <dimen name="class_100_cover_item_size">140dp</dimen>
+    <dimen name="class_100_header_height">192dp</dimen>
+
+    <!--版本更新和自选记录对话框-->
+    <dimen name="update_version_dialog_margin_left_right">25dp</dimen>
+    <dimen name="update_version_dialog_btn_radius">240dp</dimen>
+    <dimen name="update_version_dialog_btn_h">38dp</dimen>
+
+    <!-- 好股 -->
+    <dimen name="haogu_content_padding">12dp</dimen>
+    <dimen name="haogu_multi_card_item_width">80dp</dimen>
+
+    <!--智投-->
+    <dimen name="advisor_inside_title_h">57.6dp</dimen>
+    <dimen name="advisor_inside_item_padding">12dp</dimen>
+    <dimen name="advisor_insilde_item_title_h">33.6dp</dimen>
+    <dimen name="advisor_insilde_item_title_tag_w">3dp</dimen>
+    <dimen name="advisor_insilde_item_title_tag_h">11dp</dimen>
+    <dimen name="advisor_insilde_item_title_txt_margin_left">4.8dp</dimen>
+    <dimen name="advisor_live_item_padding">10dp</dimen>
+    <dimen name="advisor_strategy_item_h">72dp</dimen>
+    <dimen name="advisor_strategy_item_good_w">173.7dp</dimen>
+    <dimen name="advisor_strategy_item_good_h">21.6dp</dimen>
+    <dimen name="advisor_strategy_item_good_padding">7dp</dimen>
+    <dimen name="sector_label_height">142.5dp</dimen>
+
+    <dimen name="bengbeng_ad_w">326dp</dimen>
+    <dimen name="bengbeng_ad_h">446dp</dimen>
+
+    <dimen name="windgap_chart_height">220dp</dimen>
+
+    <dimen name="emoji_item_height">50dp</dimen>
+    <dimen name="topic_cover_width">140.2dp</dimen>
+</resources>

@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>com.duke.screenmatch</id>
-    <name>ScreenMatch</name>
+    <id>com.emoney.screenmatch</id>
+    <name>EMScreenMatch</name>
     <version>3.0</version>
     <vendor email="136239173@qq.com" url="http://blog.csdn.net/fesdgasdgasdg?viewmode=contents">Author - duke</vendor>
 
@@ -57,8 +57,8 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="ScreenMatch.MainAction" class="com.duke.screenmatch.ui.MainAction" text="ScreenMatch"
-                description="ScreenMatch">
+        <action id="ScreenMatch.MainAction" class="com.duke.screenmatch.ui.MainAction" text="EmScreenMatch"
+                description="EmScreenMatch">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="CutCopyPasteGroup"/>
             <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt M"/>
         </action>

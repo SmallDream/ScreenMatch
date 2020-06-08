@@ -51,7 +51,8 @@ public class Main {
                 needMatchs = Arrays.copyOfRange(args, 1, args.length);
             }
         }
-        start(true, tempBaseDP, needMatchs, ignoreMatchs, resFolderPath, true);
+        start(true, tempBaseDP, needMatchs, ignoreMatchs, resFolderPath, true, false);
+        start(true, tempBaseDP, needMatchs, ignoreMatchs, resFolderPath , true, true);
     }
 
 
@@ -64,9 +65,13 @@ public class Main {
      * @param ignoreMatchs   待忽略宽度dp值
      * @param resFolderPath  base dimens.xml 文件的res目录
      * @param isUseNewFolder 是否创建 values-swXXXdp 新格式的目录
+     * @param isLand 是否横屏文件夹
      * @return 返回消息
      */
-    public static String start(boolean isFontMatch, String tempBaseDP, String[] needMatchs, String[] ignoreMatchs, String resFolderPath, boolean isUseNewFolder) {
+    public static String start(boolean isFontMatch, String tempBaseDP, String[] needMatchs, String[] ignoreMatchs, String resFolderPath, boolean isUseNewFolder, boolean isLand) {
+        String suffix = isLand ? "-land" : "";
+        StringBuilder logMsg = new StringBuilder();
+
         if (tempBaseDP != null && !"".equals(tempBaseDP.trim())) {
             try {
                 baseDP = Double.parseDouble(tempBaseDP.trim());
@@ -123,20 +128,20 @@ public class Main {
         System.out.println("基准宽度dp值：[ " + Tools.cutLastZero(baseDP) + " dp ]");
         System.out.println("本次待适配的宽度dp值: [ " + Tools.getOrderedString(dataSet) + " ]");
         //获取基准的dimens.xml文件
-        String baseDimenFilePath = resFolderPath + File.separator + "values" + File.separator + "dimens.xml";
+        String baseDimenFilePath = resFolderPath + File.separator + "values" + suffix + File.separator + "dimens.xml";
         File testBaseDimenFile = new File(baseDimenFilePath);
         //判断基准文件是否存在
         if (!testBaseDimenFile.exists()) {
-            System.out.println("DK WARNING:  \"./res/values/dimens.xml\" 路径下的文件找不到!");
-            return "对应Module \"./res/values/dimens.xml\" 路径下的文件找不到!";
+            System.out.println("DK WARNING: " + baseDimenFilePath + " 路径下的文件找不到!");
+            return "对应Module " + baseDimenFilePath + " 路径下的文件找不到!";
         }
         //解析源dimens.xml文件
         ArrayList<DimenItem> list = XmlIO.readDimenFile(baseDimenFilePath);
         if (list == null || list.size() <= 0) {
-            System.out.println("DK WARNING:  \"./res/values/dimens.xml\" 文件无数据!");
-            return "\"./res/values/dimens.xml\" 文件无数据!";
+            System.out.println("DK WARNING:  " + baseDimenFilePath +" 文件无数据!");
+            return baseDimenFilePath + " 文件无数据!";
         } else {
-            System.out.println("OK \"./res/values/dimens.xml\" 基准dimens文件解析成功!");
+            System.out.println("OK " +baseDimenFilePath + " 基准dimens文件解析成功!");
         }
         try {
             //循环指定的dp参数，生成对应的dimens-swXXXdp.xml文件
@@ -154,11 +159,11 @@ public class Main {
                 String folderDP = String.valueOf((int) item);
 
                 if (isUseNewFolder) {
-                    outFolderPath = VALUES_NEW_FOLDER.replace(LETTER_REPLACE, folderDP);
-                    delFolderPath = VALUES_OLD_FOLDER.replace(LETTER_REPLACE, folderDP);
+                    outFolderPath = (VALUES_NEW_FOLDER + suffix).replace(LETTER_REPLACE, folderDP);
+                    delFolderPath = (VALUES_OLD_FOLDER + suffix).replace(LETTER_REPLACE, folderDP);
                 } else {
-                    outFolderPath = VALUES_OLD_FOLDER.replace(LETTER_REPLACE, folderDP);
-                    delFolderPath = VALUES_NEW_FOLDER.replace(LETTER_REPLACE, folderDP);
+                    outFolderPath = (VALUES_OLD_FOLDER + suffix).replace(LETTER_REPLACE, folderDP);
+                    delFolderPath = (VALUES_NEW_FOLDER + suffix).replace(LETTER_REPLACE, folderDP);
                 }
                 outFolderPath = resFolderPath + File.separator + outFolderPath + File.separator;
                 delFolderPath = resFolderPath + File.separator + delFolderPath + File.separator;
@@ -186,11 +191,12 @@ public class Main {
                 //生成的dimens文件的路径
                 String outPutFile = outFolderPath + "dimens.xml";
                 //生成目标文件dimens.xml输出目录
-                XmlIO.createDestinationDimens(isFontMatch, list, multiple, outPutFile);
+                String createMsg = XmlIO.createDestinationDimens(isFontMatch, list, multiple, outPutFile);
+                logMsg.append(createMsg);
             }
-            System.out.println("OK ALL OVER，全部生成完毕！");
+            System.out.println("OK ALL OVER，全部生成完毕！\n" + logMsg.toString());
             //适配完成
-            return "Over, adapt successful";
+            return "Over, adapt successful" + "\n" + logMsg.toString();
         } catch (Exception e) {
             return "ERROR: " + e.getMessage();
         }

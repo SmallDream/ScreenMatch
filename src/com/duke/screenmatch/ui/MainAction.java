@@ -124,8 +124,9 @@ public class MainAction extends AnAction {
         }
 
         try {
-            String resultMsg = Main.start(matchFont, tempBaseDP, needMatchs, ignoreMatchs, resBasePath, isUseNewFolder);
-            Messages.showMessageDialog(resultMsg, "Tip", Messages.getInformationIcon());
+            String resultMsg = Main.start(matchFont, tempBaseDP, needMatchs, ignoreMatchs, resBasePath, isUseNewFolder, false);
+            String resultMsgLand = Main.start(matchFont, tempBaseDP, needMatchs, ignoreMatchs, resBasePath, isUseNewFolder, true);
+            Messages.showMessageDialog("正常：" + resultMsg + "\n横屏:" + resultMsgLand, "Tip", Messages.getInformationIcon());
         } catch (Exception e) {
             Messages.showMessageDialog("Failure, There may be some errors in your screenMatch.properties file.", "Error", Messages.getErrorIcon());
             e.printStackTrace();
