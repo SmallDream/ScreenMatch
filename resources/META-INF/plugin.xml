@@ -44,6 +44,8 @@
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
     <!-- Default value is 145.0 -->
     <idea-version since-build="107.121"/>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.platform</depends>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
@@ -63,4 +65,6 @@
             <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt M"/>
         </action>
     </actions>
+
+
 </idea-plugin>

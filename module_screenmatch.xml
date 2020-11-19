@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_screenmatch" default="compile.module.screenmatch">
+  <dirname property="module.screenmatch.basedir" file="${ant.file.module_screenmatch}"/>
+  
+  <property name="module.jdk.home.screenmatch" value="${jdk.home.intellij_idea_community_edition_ic-183.5912.21}"/>
+  <property name="module.jdk.bin.screenmatch" value="${jdk.bin.intellij_idea_community_edition_ic-183.5912.21}"/>
+  <property name="module.jdk.classpath.screenmatch" value="jdk.classpath.intellij_idea_community_edition_ic-183.5912.21"/>
+  
+  <property name="compiler.args.screenmatch" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="screenmatch.output.dir" value="${module.screenmatch.basedir}/out/production/ScreenMatch"/>
+  <property name="screenmatch.testoutput.dir" value="${module.screenmatch.basedir}/out/test/ScreenMatch"/>
+  
+  <path id="screenmatch.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="screenmatch.module.production.classpath">
+    <path refid="${module.jdk.classpath.screenmatch}"/>
+  </path>
+  
+  <path id="screenmatch.runtime.production.module.classpath">
+    <pathelement location="${screenmatch.output.dir}"/>
+  </path>
+  
+  <path id="screenmatch.module.classpath">
+    <path refid="${module.jdk.classpath.screenmatch}"/>
+    <pathelement location="${screenmatch.output.dir}"/>
+  </path>
+  
+  <path id="screenmatch.runtime.module.classpath">
+    <pathelement location="${screenmatch.testoutput.dir}"/>
+    <pathelement location="${screenmatch.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.screenmatch">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.screenmatch">
+    <patternset refid="excluded.from.module.screenmatch"/>
+  </patternset>
+  
+  <path id="screenmatch.module.sourcepath">
+    <dirset dir="${module.screenmatch.basedir}">
+      <include name="src"/>
+      <include name="resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.screenmatch" depends="compile.module.screenmatch.production,compile.module.screenmatch.tests" description="Compile module ScreenMatch"/>
+  
+  <target name="compile.module.screenmatch.production" depends="register.custom.compilers" description="Compile module ScreenMatch; production classes">
+    <mkdir dir="${screenmatch.output.dir}"/>
+    <javac2 destdir="${screenmatch.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.screenmatch}/javac">
+      <compilerarg line="${compiler.args.screenmatch}"/>
+      <bootclasspath refid="screenmatch.module.bootclasspath"/>
+      <classpath refid="screenmatch.module.production.classpath"/>
+      <src refid="screenmatch.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.screenmatch"/>
+    </javac2>
+    
+    <copy todir="${screenmatch.output.dir}">
+      <fileset dir="${module.screenmatch.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.screenmatch.basedir}/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.screenmatch.tests" depends="register.custom.compilers,compile.module.screenmatch.production" description="compile module ScreenMatch; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.screenmatch" description="cleanup module">
+    <delete dir="${screenmatch.output.dir}"/>
+    <delete dir="${screenmatch.testoutput.dir}"/>
+  </target>
+  
+  <property name="screenmatch.plugin.path.jar" value="${module.screenmatch.basedir}/ScreenMatch.jar"/>
+  
+  <!-- Build archive for plugin 'ScreenMatch' -->
+  <target name="plugin.build.jar.screenmatch" depends="compile.module.screenmatch" description="Build plugin archive for module &#39;ScreenMatch&#39;">
+    <jar destfile="${screenmatch.plugin.path.jar}" duplicate="preserve">
+      <zipfileset dir="${module.screenmatch.basedir}/out/production/ScreenMatch"/>
+      <zipfileset file="${module.screenmatch.basedir}/resources/META-INF/plugin.xml" prefix="META-INF"/>
+      <manifest>
+        <attribute name="Created-By" value="IntelliJ IDEA"/>
+        <attribute name="Manifest-Version" value="1.0"/>
+      </manifest>
+    </jar>
+  </target>
+</project>
